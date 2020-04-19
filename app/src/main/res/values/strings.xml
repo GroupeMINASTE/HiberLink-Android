@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HiberLink</string>
+    <string name="upload_title">Generate</string>
+    <string name="upload_input">Enter an URL…</string>
+    <string name="upload_generate">Generate</string>
+    <string name="upload_generating">Generating…</string>
+    <string name="upload_output">Generated link will be shown here</string>
+    <string name="upload_copy">Copy generated link</string>
+    <string name="upload_error">An error occurred!</string>
+    <string name="history_title">History</string>
+    <string name="history_clear">Clear</string>
+    <string name="copied_title">Link copied!</string>
+    <string name="copied_close">Close</string>
+</resources>
