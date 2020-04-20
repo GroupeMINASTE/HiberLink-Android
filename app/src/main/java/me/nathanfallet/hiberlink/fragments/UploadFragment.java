@@ -12,11 +12,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import org.javatuples.Pair;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import me.nathanfallet.hiberlink.R;
 import me.nathanfallet.hiberlink.api.APIRequest;
 import me.nathanfallet.hiberlink.api.APIResponseStatus;
+import me.nathanfallet.hiberlink.utils.Database;
 
 public class UploadFragment extends Fragment implements View.OnClickListener {
 
@@ -53,7 +56,7 @@ public class UploadFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if (view == generate && !input.getText().toString().trim().isEmpty()) {
-            String url = input.getText().toString().trim();
+            final String url = input.getText().toString().trim();
 
             // Disable
             generate.setEnabled(false);
@@ -70,7 +73,7 @@ public class UploadFragment extends Fragment implements View.OnClickListener {
                         output.setText(object);
 
                         // Add it to database
-                        // TODO: DB
+                        Database.getInstance(input.getContext()).addLink(Pair.with(object, url));
 
                         // Notify delegate
                         // TODO: Delegates

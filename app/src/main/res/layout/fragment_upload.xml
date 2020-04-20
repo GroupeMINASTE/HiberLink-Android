@@ -11,6 +11,16 @@
         android:layout_margin="16dp"
         android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/upload_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:autofillHints=""
+            android:hint="@string/upload_input"
+            android:inputType="textUri"
+            android:textAlignment="center" />
+
         <Button
             android:id="@+id/upload_generate"
             android:layout_width="match_parent"
@@ -18,14 +28,6 @@
             android:layout_marginBottom="32dp"
             android:background="@color/colorPrimary"
             android:text="@string/upload_generate"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:id="@+id/upload_copy"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorPrimary"
-            android:text="@string/upload_copy"
             android:textColor="@android:color/white" />
 
         <EditText
@@ -37,15 +39,13 @@
             android:hint="@string/upload_output"
             android:textAlignment="center" />
 
-        <EditText
-            android:id="@+id/upload_input"
+        <Button
+            android:id="@+id/upload_copy"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:autofillHints=""
-            android:hint="@string/upload_input"
-            android:inputType="textUri"
-            android:textAlignment="center" />
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:text="@string/upload_copy"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 
