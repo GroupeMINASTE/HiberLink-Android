@@ -83,7 +83,6 @@ public class APIRequest extends AsyncTask<Void, Void, String> {
             // Set body
             if (body != null) {
                 con.setDoOutput(true);
-                con.setRequestProperty("Content-Type", "application/json; utf-8");
                 try (OutputStream os = con.getOutputStream()) {
                     byte[] input = body.getBytes(StandardCharsets.UTF_8);
                     os.write(input, 0, input.length);
