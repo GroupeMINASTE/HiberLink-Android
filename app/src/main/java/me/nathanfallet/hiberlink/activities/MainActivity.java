@@ -11,27 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import me.nathanfallet.hiberlink.R;
+import me.nathanfallet.hiberlink.fragments.HistoryFragment;
 import me.nathanfallet.hiberlink.fragments.UploadFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private ActionBar toolbar;
     private UploadFragment uploadFragment = new UploadFragment();
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_upload:
-                    toolbar.setTitle(R.string.upload_title);
-                    loadFragment(uploadFragment);
-                    return true;
-                case R.id.navigation_history:
-                    toolbar.setTitle(R.string.history_title);
-                    return true;
-            }
-            return false;
-        }
-    };
+    private HistoryFragment historyFragment = new HistoryFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = getSupportActionBar();
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setOnNavigationItemSelectedListener(this);
 
         toolbar.setTitle(R.string.upload_title);
         loadFragment(uploadFragment);
@@ -53,6 +40,21 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.frame_container, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.navigation_upload:
+                toolbar.setTitle(R.string.upload_title);
+                loadFragment(uploadFragment);
+                return true;
+            case R.id.navigation_history:
+                toolbar.setTitle(R.string.history_title);
+                loadFragment(historyFragment);
+                return true;
+        }
+        return false;
     }
 
 }

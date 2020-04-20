@@ -75,9 +75,6 @@ public class UploadFragment extends Fragment implements View.OnClickListener {
                         // Add it to database
                         Database.getInstance(input.getContext()).addLink(Pair.with(object, url));
 
-                        // Notify delegate
-                        // TODO: Delegates
-
                         // Select it
                         output.requestFocus();
                         output.selectAll();

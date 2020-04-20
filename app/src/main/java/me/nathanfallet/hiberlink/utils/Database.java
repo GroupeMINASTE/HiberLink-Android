@@ -53,7 +53,7 @@ public class Database extends SQLiteOpenHelper {
         List<Pair<String, String>> list = new ArrayList<>();
 
         // Create a SQL query
-        String query = "SELECT * FROM link ORDER BY generated DESC";
+        String query = "SELECT * FROM links ORDER BY generated DESC";
 
         // Get the database
         SQLiteDatabase db = getReadableDatabase();
@@ -68,7 +68,7 @@ public class Database extends SQLiteOpenHelper {
                 } while (cursor.moveToNext());
             }
         } catch (Exception e) {
-            Log.d("HIBERLINK", "Error while trying to get algorithms from database");
+            Log.d("HIBERLINK", "Error while trying to get links from database");
         } finally {
             if (cursor != null && !cursor.isClosed()) {
                 cursor.close();
@@ -98,7 +98,7 @@ public class Database extends SQLiteOpenHelper {
             db.insertOrThrow("links", null, values);
             db.setTransactionSuccessful();
         } catch (Exception e) {
-            Log.d("DELTA", "Error while trying to add algorithm to database");
+            Log.d("HIBERLINK", "Error while trying to add a link to database");
         } finally {
             db.endTransaction();
         }
@@ -114,7 +114,7 @@ public class Database extends SQLiteOpenHelper {
             db.delete("links", null, new String[]{});
             db.setTransactionSuccessful();
         } catch (Exception e) {
-            Log.d("DELTA", "Error while trying to delete algorithm");
+            Log.d("HIBERLINK", "Error while trying to delete links");
         } finally {
             db.endTransaction();
         }
