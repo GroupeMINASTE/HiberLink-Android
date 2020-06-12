@@ -4,7 +4,7 @@
     <string name="upload_title">Générer</string>
     <string name="upload_input">Entrez une URL…</string>
     <string name="upload_generate">Générer</string>
-    <string name="upload_generating">Gérénation…</string>
+    <string name="upload_generating">Génération…</string>
     <string name="upload_output">Le lien généré apparaitra ici</string>
     <string name="upload_copy">Copier le lien généré</string>
     <string name="upload_error">Une erreur est survenue !</string>
